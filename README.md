@@ -26,7 +26,7 @@
 - 터미널에서 `java -version`을 실행하여 Java 버전이 17인지 확인한다.
   Eclipse 또는 IntelliJ IDEA와 같은 IDE에서 Java 17로 실행되는지 확인한다.
 - 터미널에서 Mac 또는 Linux 사용자의 경우 `./gradlew clean test` 명령을 실행하고,
-  Windows 사용자의 경우 `gradlew.bat clean test` 또는 `./gradlew.bat clean test` 명령을 실행할 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
+  Windows 사용자의 경우 `gradlew.bat clean test` 또는 `gradlew.bat clean test` 명령을 실행할 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
 
 ```
 BUILD SUCCESSFUL in 0s
