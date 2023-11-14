@@ -10,11 +10,18 @@ public class MenuList {
 
     private final int quantity;
 
-    public final Map<Menu, Integer> menuList;
+    public final Menu menu;
 
-    public MenuList(int quantity, Map<Menu, Integer> menuList) {
+    public MenuList(int quantity, Menu menu) {
         this.quantity = quantity;
+        this.menu = menu;
+    }
 
-        this.menuList = menuList;
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getMenu(){
+        return menu;
     }
 }

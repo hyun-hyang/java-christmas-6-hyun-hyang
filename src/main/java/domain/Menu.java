@@ -1,5 +1,7 @@
 package domain;
 
+import exception.ExceptionMessage;
+
 public enum Menu {
     MUSHROOM ("양송이수프",6_000),
     TAPAS ("타파스",5_500),
@@ -24,5 +26,21 @@ public enum Menu {
 
     public boolean equals(String name) {
         return this.name == name;
+    }
+    public static Menu fromString(String stringValue) {
+        for (Menu menu : Menu.values()) {
+            if (menu.name.equals(stringValue)) {
+                return menu;
+            }
+        }
+        // 매칭되는 Enum 상수가 없을 경우 예외처리 또는 기본값 설정
+        throw new IllegalArgumentException(ExceptionMessage.MENU_NOT_IN_MENU.toString());
+    }
+
+    public int getPrice() {
+        return price;
+    }
+    public String getName() {
+        return name;
     }
 }

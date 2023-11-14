@@ -20,8 +20,8 @@ public enum Category {
         this.categoryName = categoryName;
         List<String> menus = List.of(menuList.replace(" ", "").split(","));
         for(String menuName: menus) {
-            Menu menu = new Menu(menuName);
-            this.menuList.add(menu);
+            Menu menu = Menu.fromString(menuName);
+            this.menuList.add(0, menu);
         }
     }
 
