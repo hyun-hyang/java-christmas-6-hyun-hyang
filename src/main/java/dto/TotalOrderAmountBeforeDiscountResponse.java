@@ -11,8 +11,15 @@ public class TotalOrderAmountBeforeDiscountResponse {
             total+= category.getPrice();
         }
         this.priceBeforeDiscount = total;
-        String formattedNumber = String.format("%,d원", total);
-        System.out.println(formattedNumber);
+
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        String formattedNumber = String.format("%,d원", priceBeforeDiscount);
+        stringBuilder.append(formattedNumber);
+        return stringBuilder.toString();
     }
 
 }

@@ -3,7 +3,9 @@ package controller;
 import static domain.Category.onlyOrderLeft;
 
 import domain.Category;
+import dto.MenuOrderResultResponse;
 import dto.MenuRequest;
+import dto.TotalOrderAmountBeforeDiscountResponse;
 import java.util.List;
 import view.InputView;
 import view.OutputView;
@@ -50,8 +52,8 @@ public class DecemberEventPlanner {
 
     private void printOrderBeforeBenefit() {
         outputView.printServiceStart();
-        outputView.printMenuOrderResult();
-        outputView.printTotalOrderAmountBeforeDiscount();
+        outputView.printMenuOrderResult(new MenuOrderResultResponse());
+        outputView.printTotalOrderAmountBeforeDiscount(new TotalOrderAmountBeforeDiscountResponse());
     }
 
     private void printOrderAfterBenefit() {
