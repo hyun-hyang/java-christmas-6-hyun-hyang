@@ -3,6 +3,7 @@ package controller;
 import static domain.Category.onlyOrderLeft;
 
 import domain.Category;
+import dto.GiftMenuResponse;
 import dto.MenuOrderResultResponse;
 import dto.MenuRequest;
 import dto.TotalOrderAmountBeforeDiscountResponse;
@@ -54,10 +55,11 @@ public class DecemberEventPlanner {
         outputView.printServiceStart();
         outputView.printMenuOrderResult(new MenuOrderResultResponse());
         outputView.printTotalOrderAmountBeforeDiscount(new TotalOrderAmountBeforeDiscountResponse());
+        outputView.printGiftMenu(new GiftMenuResponse());
     }
 
     private void printOrderAfterBenefit() {
-        outputView.printGiftMenu();
+
         outputView.printBenefitDetails();
         outputView.printDiscount();
         outputView.printTotalOrderAmountAfterDiscount();

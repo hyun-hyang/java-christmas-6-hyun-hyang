@@ -1,7 +1,6 @@
 package view;
 
-import camp.nextstep.edu.missionutils.Console;
-import domain.Category;
+import dto.GiftMenuResponse;
 import dto.MenuOrderResultResponse;
 import dto.TotalOrderAmountBeforeDiscountResponse;
 
@@ -29,8 +28,9 @@ public class OutputView {
         System.out.println(response);
     }
 
-    public void printGiftMenu(){
+    public void printGiftMenu(GiftMenuResponse response){
         System.out.println(GIFT_MENU);
+        System.out.println(response);
     }
 
     public void printBenefitDetails(){

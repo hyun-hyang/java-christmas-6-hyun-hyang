@@ -3,7 +3,7 @@ package dto;
 import domain.Category;
 
 public class TotalOrderAmountBeforeDiscountResponse {
-    private final int priceBeforeDiscount;
+    private static int priceBeforeDiscount = 0;
 
     public TotalOrderAmountBeforeDiscountResponse(){
         int total = 0;
@@ -22,4 +22,7 @@ public class TotalOrderAmountBeforeDiscountResponse {
         return stringBuilder.toString();
     }
 
+    static public int getPriceBeforeDiscount() {
+        return priceBeforeDiscount;
+    }
 }
