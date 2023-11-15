@@ -5,10 +5,10 @@ import domain.Category;
 public class BenefitDetailsResponse {
 
     private int date;
-    private int ChristmasDiscount;
-    private int WeekdayDiscount;
-    private int SpecialDiscount;
-    private int GiftMenuEvent;
+    private static int ChristmasDiscount;
+    private static int WeekdayDiscount;
+    private static int SpecialDiscount;
+    private static int GiftMenuEvent;
 
     public BenefitDetailsResponse(int date){
         this.date = date;
@@ -16,6 +16,22 @@ public class BenefitDetailsResponse {
         this.WeekdayDiscount = checkWeekdayDiscount();
         this.SpecialDiscount = checkSpecialDiscount();
         this.GiftMenuEvent = checkGiftMenuEvent();
+    }
+
+    public static int getChristmasDiscount() {
+        return ChristmasDiscount;
+    }
+
+    public static int getGiftMenuEvent() {
+        return GiftMenuEvent;
+    }
+
+    public static int getSpecialDiscount() {
+        return SpecialDiscount;
+    }
+
+    public static int getWeekdayDiscount() {
+        return WeekdayDiscount;
     }
 
     public int checkChristmasDiscount(){

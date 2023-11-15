@@ -4,9 +4,12 @@ import static domain.Category.onlyOrderLeft;
 
 import domain.Category;
 import dto.BenefitDetailsResponse;
+import dto.DecemberEventBadgeResponse;
+import dto.DiscountResponse;
 import dto.GiftMenuResponse;
 import dto.MenuOrderResultResponse;
 import dto.MenuRequest;
+import dto.TotalOrderAmountAfterDiscountResponse;
 import dto.TotalOrderAmountBeforeDiscountResponse;
 import java.util.List;
 import view.InputView;
@@ -61,9 +64,9 @@ public class DecemberEventPlanner {
 
     private void printOrderAfterBenefit() {
         outputView.printBenefitDetails(new BenefitDetailsResponse(this.date));
-        outputView.printDiscount();
-        outputView.printTotalOrderAmountAfterDiscount();
-        outputView.printDecemberEventBadge();
+        outputView.printDiscount(new DiscountResponse());
+        outputView.printTotalOrderAmountAfterDiscount(new TotalOrderAmountAfterDiscountResponse());
+        outputView.printDecemberEventBadge(new DecemberEventBadgeResponse());
     }
 
 

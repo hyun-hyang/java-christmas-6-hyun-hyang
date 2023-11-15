@@ -3,7 +3,7 @@ package dto;
 import domain.Category;
 
 public class TotalOrderAmountBeforeDiscountResponse {
-    private static int priceBeforeDiscount = 0;
+    private static int priceBeforeDiscount;
 
     public TotalOrderAmountBeforeDiscountResponse(){
         int total = 0;

@@ -1,8 +1,11 @@
 package view;
 
 import dto.BenefitDetailsResponse;
+import dto.DecemberEventBadgeResponse;
+import dto.DiscountResponse;
 import dto.GiftMenuResponse;
 import dto.MenuOrderResultResponse;
+import dto.TotalOrderAmountAfterDiscountResponse;
 import dto.TotalOrderAmountBeforeDiscountResponse;
 
 public class OutputView {
@@ -39,16 +42,19 @@ public class OutputView {
         System.out.println(response);
     }
 
-    public void printDiscount(){
+    public void printDiscount(DiscountResponse response){
         System.out.println(DISCOUNT);
+        System.out.println(response);
     }
 
-    public void printTotalOrderAmountAfterDiscount(){
+    public void printTotalOrderAmountAfterDiscount(TotalOrderAmountAfterDiscountResponse response){
         System.out.println(TOTAL_ORDER_AMOUNT_AFTER_DISCOUNT);
+        System.out.println(response);
     }
 
-    public void printDecemberEventBadge(){
+    public void printDecemberEventBadge(DecemberEventBadgeResponse response){
         System.out.println(DECEMBER_EVENT_BADGE);
+        System.out.println(response);
     }
 
 
