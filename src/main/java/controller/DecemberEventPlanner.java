@@ -4,6 +4,7 @@ import static domain.Category.onlyOrderLeft;
 
 import domain.Category;
 import dto.BenefitDetailsResponse;
+import dto.DateRequest;
 import dto.DecemberEventBadgeResponse;
 import dto.DiscountResponse;
 import dto.GiftMenuResponse;
@@ -20,7 +21,6 @@ public class DecemberEventPlanner {
     private final OutputView outputView;
 
     int date;
-    String menu;
 
 
     public DecemberEventPlanner(){
@@ -30,23 +30,24 @@ public class DecemberEventPlanner {
     }
 
     private void play() {
-        this.date = getDate();
-        MenuRequest menuRequest = new MenuRequest(getMenu());
+        DateRequest dateRequest = getDate();
+        this.date = dateRequest.getDate();
+
         Category.onlyOrderLeft();
         printOrderBeforeBenefit();
         printOrderAfterBenefit();
     }
 
-    private int getDate() {
+    private DateRequest getDate() {
         try{
-            return InputView.readDate();
+            return inputView.readDate();
         } catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
             return getDate();
         }
     }
 
-    private String getMenu() {
+    private MenuRequest getMenu() {
         try{
             return InputView.readMenu();
         } catch (IllegalArgumentException e){
