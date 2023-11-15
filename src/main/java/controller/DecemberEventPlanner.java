@@ -1,6 +1,9 @@
 package controller;
 
+import static domain.Category.onlyOrderLeft;
+
 import domain.Category;
+import dto.MenuRequest;
 import java.util.List;
 import view.InputView;
 import view.OutputView;
@@ -10,7 +13,7 @@ public class DecemberEventPlanner {
     private final OutputView outputView;
 
     int date;
-    List<String> menu;
+    String menu;
 
 
     public DecemberEventPlanner(){
@@ -21,15 +24,9 @@ public class DecemberEventPlanner {
 
     private void play() {
         this.date = getDate();
-        this.menu = getMenu();
-        System.out.println(date);
-        System.out.println(menu);
+        MenuRequest menuRequest = new MenuRequest(getMenu());
         printOrderBeforeBenefit();
         printOrderAfterBenefit();
-    }
-
-    private void CategoryReady() {
-
     }
 
     private int getDate() {
@@ -41,7 +38,7 @@ public class DecemberEventPlanner {
         }
     }
 
-    private List<String> getMenu() {
+    private String getMenu() {
         try{
             return InputView.readMenu();
         } catch (IllegalArgumentException e){

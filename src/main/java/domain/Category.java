@@ -27,10 +27,33 @@ public enum Category {
 
     public static Category validateMenu(String menuName) {
         Category category = Arrays.stream(values())
-                    .filter(value -> value.menuList.contains(new MenuList(menuName)))
-                    .findAny()
-                    .orElse(INVALID_CATEGORY);
-            return category;
+                .filter(value -> value.menuList.contains(new MenuList(menuName)))
+                .findAny()
+                .orElse(INVALID_CATEGORY);
+        return category;
+    }
+
+    public static void onlyOrderLeft(){
+        for(Category category : Category.values()){
+            category.removeQuantityZero();
+
+        }
+
+    }
+    public boolean isMenuListNotEmpty(){
+        return !menuList.isEmpty();
+    }
+
+    public void removeQuantityZero() {
+        menuList.removeIf(MenuList::isNotOrdered);
+    }
+
+    public void setQuantity(Menu menu, int quantity){
+        getmenuList().get(findMenuIndex(menu)).setQuantity(quantity);
+    }
+
+    public int findMenuIndex(Menu menu){
+        return getmenuList().indexOf(new MenuList(menu));
     }
 
 
@@ -43,4 +66,13 @@ public enum Category {
     }
 
     public List<MenuList> getmenuList() {return menuList; }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(MenuList item : menuList){
+            stringBuilder.append(item.toString());
+        }
+        return stringBuilder.toString();
+    }
 }

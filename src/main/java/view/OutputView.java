@@ -1,6 +1,7 @@
 package view;
 
 import camp.nextstep.edu.missionutils.Console;
+import domain.Category;
 
 public class OutputView {
     private final static String SERVICE_START = "12월 3일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
@@ -18,6 +19,12 @@ public class OutputView {
 
     public void printMenuOrderResult(){
         System.out.println(MENU_ORDER_RESULT);
+        Category.onlyOrderLeft();
+        for(Category category : Category.values()){
+            if(category.isMenuListNotEmpty()){
+                System.out.print(category);
+            }
+        }
     }
 
     public void printTotalOrderAmountBeforeDiscount(){

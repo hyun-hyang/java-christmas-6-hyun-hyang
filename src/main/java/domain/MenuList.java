@@ -8,7 +8,7 @@ public class MenuList {
     public final static String DESSERT_MENU = "초코케이크, 아이스크림";
     public final static String BEVERAGE_MENU = "제로콜라, 레드와인, 샴페인";
 
-    private final int quantity;
+    private int quantity;
 
     public final Menu menu;
 
@@ -19,6 +19,18 @@ public class MenuList {
     public MenuList(String menu){
         this.menu = Menu.findMenuByStringValue(menu);
         this.quantity = 0;
+    }
+    public MenuList(Menu menu){
+        this.menu = menu;
+        this.quantity = 0;
+    }
+
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    public boolean isNotOrdered(){
+        return this.quantity<=0;
     }
 
 
@@ -32,7 +44,7 @@ public class MenuList {
 
     @Override
     public String toString(){
-        return menu + " " + quantity ;
+        return menu + " " + quantity + "개\n" ;
     }
 
     @Override

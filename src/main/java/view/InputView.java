@@ -1,9 +1,11 @@
 package view;
 
+import static domain.Menu.findMenuByStringValue;
 import static exception.ExceptionMessage.DATE_NOT_IN_RANGE;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.Category;
+import domain.Menu;
 import exception.ExceptionMessage;
 import java.util.List;
 
@@ -32,36 +34,10 @@ public class InputView {
         }
     }
 
-    public static List<String> readMenu() {
+    public static String readMenu() {
         System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
-        String inputString = Console.readLine();
-        List<String> parsedStrings = parsing(inputString, ",");
-        for (String parsedString : parsedStrings) {
-            List<String> parts = parsing(parsedString, "-");
-            String menuName = parts.get(0);
-            int quantity = parseToInt(parts.get(1));
-            validateQuantity(quantity);
-            System.out.println(menuName);
-            Category category = Category.validateMenu(menuName);
-            System.out.println(category);
-
-        }
-
-        return parsedStrings;
+        return Console.readLine();
     }
 
-    private static void validateQuantity(int quantity) {
-        if(quantity < 1) {
-            throw new IllegalArgumentException(ExceptionMessage.MENU_NOT_IN_RANGE.toString());
-        }
-    }
 
-    private static List<String> parsing(String inputString, String parsingString) {
-        try{
-            return List.of(inputString.split(parsingString));
-        } catch (IllegalArgumentException e) {
-            System.out.println(ExceptionMessage.MENU_INCORRECT_FORMAT);
-            return readMenu();
-        }
-    }
 }
