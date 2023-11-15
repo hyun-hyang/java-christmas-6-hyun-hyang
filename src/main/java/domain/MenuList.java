@@ -42,6 +42,12 @@ public class MenuList {
         return this.menu;
     }
 
+    public int getPrice(){
+        int price = 0;
+        price += getMenu().getPrice() * getQuantity();
+        return price;
+    }
+
     @Override
     public String toString(){
         return menu + " " + quantity + "개\n" ;

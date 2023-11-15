@@ -9,5 +9,10 @@ public class MenuOrderResultResponse {
 
     public MenuOrderResultResponse(){
 
+        for(Category category : Category.values()){
+            if(category.isMenuListNotEmpty()){
+                System.out.print(category);
+            }
+        }
     }
 }

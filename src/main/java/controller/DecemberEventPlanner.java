@@ -25,6 +25,7 @@ public class DecemberEventPlanner {
     private void play() {
         this.date = getDate();
         MenuRequest menuRequest = new MenuRequest(getMenu());
+        Category.onlyOrderLeft();
         printOrderBeforeBenefit();
         printOrderAfterBenefit();
     }

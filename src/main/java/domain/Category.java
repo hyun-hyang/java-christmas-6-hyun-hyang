@@ -25,6 +25,14 @@ public enum Category {
         }
     }
 
+    public int getPrice(){
+        int price = 0;
+        for(MenuList item : menuList){
+            price += item.getPrice();
+        }
+        return price;
+    }
+
     public static Category validateMenu(String menuName) {
         Category category = Arrays.stream(values())
                 .filter(value -> value.menuList.contains(new MenuList(menuName)))
