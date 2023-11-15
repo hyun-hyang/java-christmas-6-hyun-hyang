@@ -17,9 +17,10 @@ public class MenuList {
         this.menu = menu;
     }
     public MenuList(String menu){
-        this.menu = Menu.fromString(menu);
+        this.menu = Menu.findMenuByStringValue(menu);
         this.quantity = 0;
     }
+
 
     public int getQuantity() {
         return this.quantity;
@@ -28,4 +29,25 @@ public class MenuList {
     public Menu getMenu(){
         return this.menu;
     }
+
+    @Override
+    public String toString(){
+        return menu + " " + quantity ;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if(object instanceof MenuList){
+            MenuList toCompare = (MenuList) object;
+            return this.menu.equals(toCompare.getMenu());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return menu.hashCode();
+    }
+
 }

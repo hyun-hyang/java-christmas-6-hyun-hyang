@@ -3,6 +3,7 @@ package view;
 import static exception.ExceptionMessage.DATE_NOT_IN_RANGE;
 
 import camp.nextstep.edu.missionutils.Console;
+import domain.Category;
 import exception.ExceptionMessage;
 import java.util.List;
 
@@ -40,6 +41,10 @@ public class InputView {
             String menuName = parts.get(0);
             int quantity = parseToInt(parts.get(1));
             validateQuantity(quantity);
+            System.out.println(menuName);
+            Category category = Category.validateMenu(menuName);
+            System.out.println(category);
+
         }
 
         return parsedStrings;

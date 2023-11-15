@@ -1,5 +1,6 @@
 package controller;
 
+import domain.Category;
 import java.util.List;
 import view.InputView;
 import view.OutputView;
@@ -25,6 +26,10 @@ public class DecemberEventPlanner {
         System.out.println(menu);
         printOrderBeforeBenefit();
         printOrderAfterBenefit();
+    }
+
+    private void CategoryReady() {
+
     }
 
     private int getDate() {

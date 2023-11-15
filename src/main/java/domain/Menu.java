@@ -14,7 +14,8 @@ public enum Menu {
     ICECREAM ("아이스크림",5_000),
     ZEROCOKE ("제로콜라",3_000),
     REDWINE ("레드와인",60_000),
-    CHAMPAGNE ("샴페인",25_000);
+    CHAMPAGNE ("샴페인",25_000),
+    INVALID_MENU ("", 0);
 
     private final String name;
     private final int price;
@@ -24,9 +25,17 @@ public enum Menu {
         this.price = price;
     }
 
-    public static Menu fromString(String stringValue) {
+    Menu(String name) {
+        this.name = name;
+        this.price = 0;
+    }
+
+    public static Menu findMenuByStringValue(String stringValue) {
+        if(stringValue == null ){
+            return INVALID_MENU;
+        }
         for (Menu menu : Menu.values()) {
-            if (menu.name.equals(stringValue)) {
+            if (menu.getName().equals(stringValue)) {
                 return menu;
             }
         }
@@ -40,4 +49,13 @@ public enum Menu {
     public String getName() {
         return name;
     }
+
+
+    @Override
+    public String toString(){
+        return getName();
+    }
+
+
+
 }

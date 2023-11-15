@@ -19,16 +19,18 @@ public enum Category {
         this.categoryNumber = categoryNumber;
         this.categoryName = categoryName;
         List<String> menus = List.of(menuList.replace(" ", "").split(","));
+
         for(String menuName: menus) {
             this.menuList.add(new MenuList(menuName));
         }
     }
 
     public static Category validateMenu(String menuName) {
-        return Arrays.stream(values())
-                .filter(value -> value.menuList.contains(menuName))
-                .findAny()
-                .orElse(INVALID_CATEGORY);
+        Category category = Arrays.stream(values())
+                    .filter(value -> value.menuList.contains(new MenuList(menuName)))
+                    .findAny()
+                    .orElse(INVALID_CATEGORY);
+            return category;
     }
 
 
@@ -39,4 +41,6 @@ public enum Category {
     public String getCategoryName() {
         return categoryName;
     }
+
+    public List<MenuList> getmenuList() {return menuList; }
 }
