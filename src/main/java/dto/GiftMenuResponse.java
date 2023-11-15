@@ -1,7 +1,5 @@
 package dto;
 
-import domain.Category;
-
 public class GiftMenuResponse {
 
     private static boolean hasChampagne;
@@ -11,6 +9,10 @@ public class GiftMenuResponse {
         if(TotalOrderAmountBeforeDiscountResponse.getPriceBeforeDiscount() >= 120000){
             hasChampagne = true;
         }
+    }
+
+    public static boolean getHasChampagne(){
+        return hasChampagne;
     }
 
     @Override

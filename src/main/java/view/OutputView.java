@@ -1,5 +1,6 @@
 package view;
 
+import dto.BenefitDetailsResponse;
 import dto.GiftMenuResponse;
 import dto.MenuOrderResultResponse;
 import dto.TotalOrderAmountBeforeDiscountResponse;
@@ -33,8 +34,9 @@ public class OutputView {
         System.out.println(response);
     }
 
-    public void printBenefitDetails(){
+    public void printBenefitDetails(BenefitDetailsResponse response){
         System.out.println(BENEFIT_DETAILS);
+        System.out.println(response);
     }
 
     public void printDiscount(){

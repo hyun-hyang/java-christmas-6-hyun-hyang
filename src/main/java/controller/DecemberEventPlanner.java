@@ -3,6 +3,7 @@ package controller;
 import static domain.Category.onlyOrderLeft;
 
 import domain.Category;
+import dto.BenefitDetailsResponse;
 import dto.GiftMenuResponse;
 import dto.MenuOrderResultResponse;
 import dto.MenuRequest;
@@ -59,8 +60,7 @@ public class DecemberEventPlanner {
     }
 
     private void printOrderAfterBenefit() {
-
-        outputView.printBenefitDetails();
+        outputView.printBenefitDetails(new BenefitDetailsResponse(this.date));
         outputView.printDiscount();
         outputView.printTotalOrderAmountAfterDiscount();
         outputView.printDecemberEventBadge();
