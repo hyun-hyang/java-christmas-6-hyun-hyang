@@ -2,7 +2,7 @@ package exception;
 
 public enum ExceptionMessage {
     //Date
-    DATE_INCORRECT_FORMAT("숫자만 입력해야합니다."),
+    DATE_INCORRECT_FORMAT("유효하지 않은 날짜입니다. 다시 입력해 주세요. 숫자만 입력해야합니다."),
     DATE_NOT_IN_RANGE("유효하지 않은 날짜입니다. 다시 입력해 주세요. 1~31 범위안에서 입력해야합니다."),
     //Menu
     MENU_NOT_IN_MENU("유효하지 않은 주문입니다. 다시 입력해 주세요. 메뉴에 없는 입력입니다."),
@@ -14,7 +14,7 @@ public enum ExceptionMessage {
     ;
 
     private final String exceptionMessage;
-    private final String ERROR_HEADER = "[ERROR]";
+    private final String ERROR_HEADER = "[ERROR] ";
 
     ExceptionMessage(String exceptionMessage) {
         this.exceptionMessage = exceptionMessage;
@@ -22,6 +22,6 @@ public enum ExceptionMessage {
 
     @Override
     public String toString() {
-        return ERROR_HEADER + super.toString();
+        return ERROR_HEADER + exceptionMessage;
     }
 }
