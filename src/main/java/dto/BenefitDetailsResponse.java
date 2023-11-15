@@ -71,9 +71,13 @@ public class BenefitDetailsResponse {
 
     @Override
     public String toString(){
-        return "크리스마스 디데이 할인: -" + String.format("%,d원\n", ChristmasDiscount)
-                + "평일 할인: -" + String.format("%,d원\n", WeekdayDiscount)
-                + "특별 할인: -" + String.format("%,d원\n", SpecialDiscount)
-                + "증정 이벤트: -" + String.format("%,d원", GiftMenuEvent);
+        int discount = DiscountResponse.getDiscount();
+        if(discount != 0){
+            return "크리스마스 디데이 할인: -" + String.format("%,d원\n", ChristmasDiscount)
+                    + "평일 할인: -" + String.format("%,d원\n", WeekdayDiscount)
+                    + "특별 할인: -" + String.format("%,d원\n", SpecialDiscount)
+                    + "증정 이벤트: -" + String.format("%,d원", GiftMenuEvent);
+        }
+        return "없음";
     }
 }
