@@ -1,17 +1,30 @@
 package controller;
 
-import exception.ExceptionMessage;
+import java.util.List;
 import view.InputView;
+import view.OutputView;
 
 public class DecemberEventPlanner {
+    private final InputView inputView;
+    private final OutputView outputView;
+
+    int date;
+    List<String> menu;
+
 
     public DecemberEventPlanner(){
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
         play();
     }
 
     private void play() {
-        getDate();
-        getMenu();
+        this.date = getDate();
+        this.menu = getMenu();
+        System.out.println(date);
+        System.out.println(menu);
+        printOrderBeforeBenefit();
+        printOrderAfterBenefit();
     }
 
     private int getDate() {
@@ -23,7 +36,7 @@ public class DecemberEventPlanner {
         }
     }
 
-    private void getMenu() {
+    private List<String> getMenu() {
         try{
             return InputView.readMenu();
         } catch (IllegalArgumentException e){
@@ -31,4 +44,20 @@ public class DecemberEventPlanner {
             return getMenu();
         }
     }
+
+    private void printOrderBeforeBenefit() {
+        outputView.printServiceStart();
+        outputView.printMenuOrderResult();
+        outputView.printTotalOrderAmountBeforeDiscount();
+    }
+
+    private void printOrderAfterBenefit() {
+        outputView.printGiftMenu();
+        outputView.printBenefitDetails();
+        outputView.printDiscount();
+        outputView.printTotalOrderAmountAfterDiscount();
+        outputView.printDecemberEventBadge();
+    }
+
+
 }

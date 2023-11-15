@@ -24,9 +24,6 @@ public enum Menu {
         this.price = price;
     }
 
-    public boolean equals(String name) {
-        return this.name == name;
-    }
     public static Menu fromString(String stringValue) {
         for (Menu menu : Menu.values()) {
             if (menu.name.equals(stringValue)) {

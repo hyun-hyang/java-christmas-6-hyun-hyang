@@ -16,12 +16,16 @@ public class MenuList {
         this.quantity = quantity;
         this.menu = menu;
     }
-
-    public int getQuantity() {
-        return quantity;
+    public MenuList(String menu){
+        this.menu = Menu.fromString(menu);
+        this.quantity = 0;
     }
 
-    public int getMenu(){
-        return menu;
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public Menu getMenu(){
+        return this.menu;
     }
 }

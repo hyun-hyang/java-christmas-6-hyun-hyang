@@ -13,28 +13,30 @@ public enum Category {
 
     private final int categoryNumber;
     private final String categoryName;
-    private final List<Menu> menuList = new ArrayList<>();
+    private final List<MenuList> menuList = new ArrayList<>();
 
     Category(int categoryNumber, String categoryName, String menuList) {
         this.categoryNumber = categoryNumber;
         this.categoryName = categoryName;
         List<String> menus = List.of(menuList.replace(" ", "").split(","));
         for(String menuName: menus) {
-            Menu menu = Menu.fromString(menuName);
-            this.menuList.add(0, menu);
+            this.menuList.add(new MenuList(menuName));
         }
     }
 
     public static Category validateMenu(String menuName) {
         return Arrays.stream(values())
-                .filter(value -> value.menuList.contains(new Menu(menuName)))
+                .filter(value -> value.menuList.contains(menuName))
                 .findAny()
                 .orElse(INVALID_CATEGORY);
     }
 
 
+    public int getCategoryNumber() {
+        return categoryNumber;
+    }
 
-
-
-
+    public String getCategoryName() {
+        return categoryName;
+    }
 }
